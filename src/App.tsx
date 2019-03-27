@@ -56,12 +56,12 @@ class App extends Component<any, any> {
   }
 
   afterInsertRow(row: BankItem) {
+    console.log("AAAAAAAAAAAA");
     this.setState({saveStep: 0});
     this.props.insertData(row, () => this.props.fetchData());
   }
 
   afterSaveCell(row: BankItem, cellName: any, cellValue: String, props: { rowIndex: number; colIndex: number }) {
-    console.log(row, cellName, cellValue);
     this.props.updateData(row);
   }
 
@@ -96,7 +96,7 @@ class App extends Component<any, any> {
                   insertModalBody: this.insertModalBody.bind(this),
                   insertModalFooter: this.insertModalFooter.bind(this),
                   afterInsertRow: this.afterInsertRow.bind(this),
-                  afterDeleteRow: this.afterDeleteRow.bind(this)
+                  afterDeleteRow: this.afterDeleteRow.bind(this),
                 }}
                 cellEdit={{
                   mode: 'dbclick',

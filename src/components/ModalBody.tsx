@@ -12,18 +12,34 @@ class ModalBody extends Component<any, any> {
 
   constructor(props: any) {
     super(props);
+    this.state = {
+    }
   }
 
   getFieldValue(): BankItem {
+    let accNumber = this.inputAccNumber.current ? this.inputAccNumber.current.value : "";
+    let empNumber = this.inputEmpNumber.current ? this.inputEmpNumber.current.value : "";
+    let orgStr = "0000000000000000000";
+    
+    if (accNumber == null) accNumber = "";
+    if (accNumber.length < 7) {
+      accNumber = orgStr + accNumber;
+      accNumber = accNumber.substr(accNumber.length - 7, 7);
+    }
+    if (empNumber == null) empNumber = "";
+    if (empNumber.length < 15) {
+      empNumber = orgStr + empNumber;
+      empNumber = empNumber.substr(empNumber.length - 15, 15);
+    }
     return {
-      id: String((new Date()).getTime()),
+      id: "123123",//String((new Date()).getTime()),
       account: this.inputAccount.current ? this.inputAccount.current.value : "",
       employee: this.inputEmployee.current ? this.inputEmployee.current.value : "",
       bank: this.inputBank.current ? this.inputBank.current.value : "",
       branch: this.inputBranch.current ? this.inputBranch.current.value : "",
       accType: this.inputAccType.current ? this.inputAccType.current.value : "",
-      accNumber: this.inputAccNumber.current ? this.inputAccNumber.current.value : "",
-      empNumber: this.inputEmpNumber.current ? this.inputEmpNumber.current.value : "",
+      accNumber: accNumber,
+      empNumber: empNumber,
       lastUpdate: (new Date()).toUTCString()
     };
   }
@@ -63,7 +79,7 @@ class ModalBody extends Component<any, any> {
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-accNumber">Account Number</label>
-              <input type="text" ref={this.inputAccNumber} className="form-control" id="modal-input-accNumber" placeholder="Input Account number. (ex: “0000042”)"/>
+              <input type="number" ref={this.inputAccNumber} className="form-control" id="modal-input-accNumber" placeholder="Input Account number. (ex: “0000042”)"/>
             </div>
           </div>
           
@@ -74,7 +90,7 @@ class ModalBody extends Component<any, any> {
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-empNumber">Employee Number</label>
-              <input type="text" ref={this.inputEmpNumber} className="form-control" id="modal-input-empNumber" placeholder="Input Employee number. (ex: “012345678901234”)"/>
+              <input type="number" ref={this.inputEmpNumber} className="form-control" id="modal-input-empNumber" placeholder="Input Employee number. (ex: “012345678901234”)"/>
             </div>
           </div>
           
