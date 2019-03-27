@@ -12,10 +12,11 @@ interface BankItem {
   bank: string,
   branch: string,
   accType: string,
-  accNumber: number,
-  empNumber: number,
+  accNumber: string,
+  empNumber: string,
   lastUpdate: Date,
 }
+
 class App extends Component<any, any> {
   constructor(props: any) {
     super(props);
@@ -55,7 +56,6 @@ class App extends Component<any, any> {
     );
   }
   insertModalBody(columns: any, validateState: { [dataField: string]: string }, ignoreEditable: boolean) {
-    console.log(columns);
     const steps = ["Bank", "Account", "Employee", "Confirmation"];
     return (<ModalBody columns={ columns } validateState={ validateState } ignoreEditable={ ignoreEditable } saveStep={this.state.saveStep}/>);
   }
