@@ -28,7 +28,6 @@ class App extends Component<any, any> {
     return (<div></div>);
   }
   insertModalBody(columns: any, validateState: { [dataField: string]: string }, ignoreEditable: boolean) {
-    const steps = ["Bank", "Account", "Employee", "Confirmation"];
     return (<ModalBody columns={ columns } validateState={ validateState } ignoreEditable={ ignoreEditable } saveStep={this.state.saveStep}/>);
   }
 
@@ -56,7 +55,6 @@ class App extends Component<any, any> {
   }
 
   afterInsertRow(row: BankItem) {
-    console.log("AAAAAAAAAAAA");
     this.setState({saveStep: 0});
     this.props.insertData(row, () => this.props.fetchData());
   }
