@@ -12,3 +12,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-table tbody tr.selected {
+  background: #333;
+  color: #fff;
+}
+
+.modal-header {
+  display: none;
+}
+
+.insert-steps a {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  color: #aaa;
+}
+.insert-steps a:before {
+  content: " ";
+}
+.insert-steps a.active {
+  color: #007bff;
+}
+.insert-steps a:last-child {
+  border-right: none;
+}
+
+.btn-step {
+  border-radius: 50%;
+  background: #007bff;
+  color: #fff;
+}
+.btn-step:hover {
+  background: #81baf7;
+  color: #fff;
+}
