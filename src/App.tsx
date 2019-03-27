@@ -115,7 +115,7 @@ class App extends Component<any, any> {
                 <TableHeaderColumn dataField="accType" dataAlign="right" dataSort>Account Type</TableHeaderColumn>
                 <TableHeaderColumn dataField="accNumber" dataAlign="right" dataSort>Account Number</TableHeaderColumn>
                 <TableHeaderColumn dataField="empNumber" dataAlign="right" dataSort>Employee Number</TableHeaderColumn>
-                <TableHeaderColumn dataField="lastUpdate" dataAlign="right" dataSort>Last Update</TableHeaderColumn>
+                <TableHeaderColumn dataField="lastUpdate" dataAlign="right" dataSort editable={false}>Last Update</TableHeaderColumn>
               </BootstrapTable>
             </div>
           </div>
