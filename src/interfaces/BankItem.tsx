@@ -1,5 +1,5 @@
 export interface BankItem {
-  id?: number,
+  id?: string,
   account: string,
   employee: string,
   bank: string,

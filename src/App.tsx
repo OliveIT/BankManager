@@ -2,7 +2,7 @@ import React, { Component, CSSProperties } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { connect } from "react-redux";
 
-import { fetchData, insertData } from './redux/actions';
+import { fetchData, insertData, updateData, deleteData } from './redux/actions';
 import logo from './logo.svg';
 import './App.css';
 import ModalBody from './components/ModalBody';
@@ -13,7 +13,7 @@ class App extends Component<any, any> {
     super(props);
     this.props.fetchData();
     this.state = {
-      saveStep: 3
+      saveStep: 0
     }
   }
 
@@ -55,13 +55,18 @@ class App extends Component<any, any> {
     });
   }
 
-  getFieldValue() {
-    console.log("getFieldValue")
+  afterInsertRow(row: BankItem) {
+    this.setState({saveStep: 0});
+    this.props.insertData(row, () => this.props.fetchData());
   }
 
-  afterInsertRow(row: BankItem) {
-    console.log("afterInsertRow", row);
-    this.props.insertData(row);
+  afterSaveCell(row: BankItem, cellName: any, cellValue: String, props: { rowIndex: number; colIndex: number }) {
+    console.log(row, cellName, cellValue);
+    this.props.updateData(row);
+  }
+
+  afterDeleteRow(rowKeys: ReadonlyArray<any>, rows: ReadonlyArray<BankItem>) {
+    this.props.deleteData(rowKeys);
   }
 
   render() {
@@ -90,14 +95,17 @@ class App extends Component<any, any> {
                   insertModalHeader: this.insertModalHeader.bind(this),
                   insertModalBody: this.insertModalBody.bind(this),
                   insertModalFooter: this.insertModalFooter.bind(this),
-                  afterInsertRow: this.afterInsertRow.bind(this)
+                  afterInsertRow: this.afterInsertRow.bind(this),
+                  afterDeleteRow: this.afterDeleteRow.bind(this)
                 }}
                 cellEdit={{
                   mode: 'dbclick',
-                  blurToSave: true
+                  blurToSave: true,
+                  afterSaveCell: this.afterSaveCell.bind(this)
                 }}
               >
-                <TableHeaderColumn dataField="account" dataAlign="right" isKey dataSort>Account Name</TableHeaderColumn>
+                <TableHeaderColumn dataField="id" dataAlign="right" dataSort isKey hidden>id</TableHeaderColumn>
+                <TableHeaderColumn dataField="account" dataAlign="right" dataSort>Account Name</TableHeaderColumn>
                 <TableHeaderColumn dataField="employee" dataAlign="right" dataSort>Employee Name</TableHeaderColumn>
                 <TableHeaderColumn dataField="bank" dataAlign="right" dataSort>Bank Name</TableHeaderColumn>
                 <TableHeaderColumn dataField="branch" dataAlign="right" dataSort>Branch Name</TableHeaderColumn>
@@ -120,7 +128,9 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = {
   fetchData,
-  insertData
+  insertData,
+  updateData,
+  deleteData
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

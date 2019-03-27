@@ -16,16 +16,7 @@ class ModalBody extends Component<any, any> {
 
   getFieldValue(): BankItem {
     return {
-      account: "Lorem Ipsum43123213",
-      employee: "Employee",
-      bank: "bank",
-      branch: "branch",
-      accType: "accType",
-      accNumber: "accNumber",
-      empNumber: "empNumber",
-      lastUpdate: "1234-12-12 12:12:!2"
-    };
-    /*return {
+      id: String((new Date()).getTime()),
       account: this.inputAccount.current ? this.inputAccount.current.value : "",
       employee: this.inputEmployee.current ? this.inputEmployee.current.value : "",
       bank: this.inputBank.current ? this.inputBank.current.value : "",
@@ -33,8 +24,8 @@ class ModalBody extends Component<any, any> {
       accType: this.inputAccType.current ? this.inputAccType.current.value : "",
       accNumber: this.inputAccNumber.current ? this.inputAccNumber.current.value : "",
       empNumber: this.inputEmpNumber.current ? this.inputEmpNumber.current.value : "",
-      lastUpdate: (new Date()).toString()
-    }*/
+      lastUpdate: (new Date()).toUTCString()
+    };
   }
 
   render() {
