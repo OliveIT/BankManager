@@ -4,12 +4,14 @@ import { AnyAction } from 'redux';
 import { graphql, ChildDataProps } from "react-apollo";
 import axios from 'axios';
 
-import { QUERY_GETALL } from '../graphql/queries';
+import { BankItem } from '../interfaces/BankItem';
+import { QUERY_GETALL, QUERY_INSERT } from '../graphql/queries';
+
+const url = "http://localhost:4000/";
 
 export const fetchData = () => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-    console.log("fetchData");
-    axios.post("http://localhost:4000/",{
+    axios.post(url, {
         query: QUERY_GETALL
       })
       .then(response => {
@@ -17,3 +19,17 @@ export const fetchData = () => {
       });
   };
 };
+
+export const insertData = (row: BankItem) => {
+  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    axios.post(url, {
+      query: QUERY_INSERT,
+      variables: {
+        row: row
+      }
+    })
+    .then(response => {
+      console.log("insert", response);
+    })
+  };
+}

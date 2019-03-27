@@ -2,7 +2,7 @@ import React, { Component, CSSProperties } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import { connect } from "react-redux";
 
-import { fetchData } from './redux/actions';
+import { fetchData, insertData } from './redux/actions';
 import logo from './logo.svg';
 import './App.css';
 import ModalBody from './components/ModalBody';
@@ -12,7 +12,9 @@ class App extends Component<any, any> {
   constructor(props: any) {
     super(props);
     this.props.fetchData();
-    this.state = {}
+    this.state = {
+      saveStep: 3
+    }
   }
 
   idFormat(index: number, row: BankItem) {
@@ -57,6 +59,11 @@ class App extends Component<any, any> {
     console.log("getFieldValue")
   }
 
+  afterInsertRow(row: BankItem) {
+    console.log("afterInsertRow", row);
+    this.props.insertData(row);
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -82,7 +89,8 @@ class App extends Component<any, any> {
                 options={{
                   insertModalHeader: this.insertModalHeader.bind(this),
                   insertModalBody: this.insertModalBody.bind(this),
-                  insertModalFooter: this.insertModalFooter.bind(this)
+                  insertModalFooter: this.insertModalFooter.bind(this),
+                  afterInsertRow: this.afterInsertRow.bind(this)
                 }}
                 cellEdit={{
                   mode: 'dbclick',
@@ -111,7 +119,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = {
-  fetchData
+  fetchData,
+  insertData
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

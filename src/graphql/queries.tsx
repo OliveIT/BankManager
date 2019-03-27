@@ -15,3 +15,17 @@ export const QUERY_GETALL = `
     }
   }
 `;
+
+export const QUERY_INSERT = `
+  mutation m($row: BankItemInput!) {
+    createItem(row: $input) {
+      account
+      employee
+      bank
+      branch
+      accType
+      accNumber
+      empNumber
+      lastUpdate
+    }
+  }`;

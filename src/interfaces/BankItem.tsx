@@ -1,5 +1,5 @@
 export interface BankItem {
-  id: number,
+  id?: number,
   account: string,
   employee: string,
   bank: string,
@@ -7,6 +7,6 @@ export interface BankItem {
   accType: string,
   accNumber: string,
   empNumber: string,
-  lastUpdate: Date,
-  [key: string]: number | string | Date;
+  lastUpdate: string,
+  [key: string]: number | string | Date | undefined;
 }
