@@ -103,6 +103,10 @@ class App extends Component<any, any> {
                   insertModalBody: this.insertModalBody.bind(this),
                   insertModalFooter: this.insertModalFooter.bind(this)
                 }}
+                cellEdit={{
+                  mode: 'dbclick',
+                  blurToSave: true
+                }}
               >
                 <TableHeaderColumn dataField="account" dataAlign="right" isKey dataSort>Account Name</TableHeaderColumn>
                 <TableHeaderColumn dataField="employee" dataAlign="right" dataSort>Employee Name</TableHeaderColumn>
