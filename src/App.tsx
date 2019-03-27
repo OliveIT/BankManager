@@ -1,6 +1,8 @@
 import React, { Component, CSSProperties } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { connect } from "react-redux";
 
+import { fetchData } from './redux/actions';
 import logo from './logo.svg';
 import './App.css';
 import ModalBody from './components/ModalBody';
@@ -9,26 +11,8 @@ import {BankItem} from './interfaces/BankItem';
 class App extends Component<any, any> {
   constructor(props: any) {
     super(props);
-    var banks: object[] = [];
-    for (var i = 0; i < 3; i ++)
-      banks.push(
-        {
-          id: i,
-          account: "Lorem Ipsum" + i,
-          employee: "Employee",
-          bank: "bank",
-          branch: "branch",
-          accType: "accType",
-          accNumber: "accNumber",
-          empNumber: "empNumber",
-          lastUpdate: "1234-12-12 22:22:22"
-        });
-
-
-    this.state = {
-      banks: banks,
-      saveStep: 0
-    }
+    this.props.fetchData();
+    this.state = {}
   }
 
   idFormat(index: number, row: BankItem) {
@@ -39,10 +23,7 @@ class App extends Component<any, any> {
   }
 
   insertModalHeader(onClose: () => void, onSave: () => void) {
-    return (
-      <div>
-      </div>
-    );
+    return (<div></div>);
   }
   insertModalBody(columns: any, validateState: { [dataField: string]: string }, ignoreEditable: boolean) {
     const steps = ["Bank", "Account", "Employee", "Confirmation"];
@@ -85,7 +66,7 @@ class App extends Component<any, any> {
             <hr/>
             <div className="main-table">
               <BootstrapTable
-                data={this.state.banks}
+                data={this.props.bankItems}
                 striped
                 hover
                 condensed
@@ -125,4 +106,12 @@ class App extends Component<any, any> {
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  bankItems: state.reducer.bankItems
+});
+
+const mapDispatchToProps = {
+  fetchData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
