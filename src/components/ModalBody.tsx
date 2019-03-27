@@ -44,37 +44,37 @@ class ModalBody extends Component<any, any> {
           <div className={`col-md-12 ${this.props.saveStep != 0 && "d-none"}`}>
             <div className="form-group">
               <label htmlFor="modal-input-bank">Bank Name</label>
-              <input type="text" ref={this.inputBank} className="form-control" id="modal-input-bank" placeholder="Input Bank name"/>
+              <input type="text" ref={this.inputBank} className="form-control" id="modal-input-bank" placeholder="Input Bank name. (ex: “Citibank”, “JP Morgan Chase”)"/>
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-branch">Branch Name</label>
-              <input type="text" ref={this.inputBranch} className="form-control" id="modal-input-branch" placeholder="Input Branch name"/>
+              <input type="text" ref={this.inputBranch} className="form-control" id="modal-input-branch" placeholder="Input Branch name. (ex: “LA Central”, “Branch 42”)"/>
             </div>
           </div>
           
           <div className={`col-md-12 ${this.props.saveStep != 1 && "d-none"}`}>
             <div className="form-group">
               <label htmlFor="modal-input-account">Account Holder’s name</label>
-              <input type="text" ref={this.inputAccount} className="form-control" id="modal-input-account" placeholder="Input Account Holder’s name"/>
+              <input type="text" ref={this.inputAccount} className="form-control" id="modal-input-account" placeholder="Input Account Holder’s name. (ex: “Gregory House”, “Elliot Alderson”)"/>
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-accType">Account Type</label>
-              <input type="text" ref={this.inputAccType} className="form-control" id="modal-input-accType" placeholder="Input Account type"/>
+              <input type="text" ref={this.inputAccType} className="form-control" id="modal-input-accType" placeholder="Input Account type. (ex: “Savings”, “Checking”)"/>
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-accNumber">Account Number</label>
-              <input type="text" ref={this.inputAccNumber} className="form-control" id="modal-input-accNumber" placeholder="Input Account number"/>
+              <input type="text" ref={this.inputAccNumber} className="form-control" id="modal-input-accNumber" placeholder="Input Account number. (ex: “0000042”)"/>
             </div>
           </div>
           
           <div className={`col-md-12 ${this.props.saveStep != 2 && "d-none"}`}>
             <div className="form-group">
               <label htmlFor="modal-input-employee">Employee Name</label>
-              <input type="text" ref={this.inputEmployee} className="form-control" id="modal-input-employee" placeholder="Input Employee name"/>
+              <input type="text" ref={this.inputEmployee} className="form-control" id="modal-input-employee" placeholder="Input Employee name. (ex: “Dr. Gregory House”, “Mr. Robot”)"/>
             </div>
             <div className="form-group">
               <label htmlFor="modal-input-empNumber">Employee Number</label>
-              <input type="text" ref={this.inputEmpNumber} className="form-control" id="modal-input-empNumber" placeholder="Input Employee number"/>
+              <input type="text" ref={this.inputEmpNumber} className="form-control" id="modal-input-empNumber" placeholder="Input Employee number. (ex: “012345678901234”)"/>
             </div>
           </div>
           
