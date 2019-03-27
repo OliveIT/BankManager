@@ -1,17 +1,6 @@
 import React, { Component, createRef } from 'react';
+import {BankItem} from '../interfaces/BankItem';
 
-interface BankItem {
-  id: number,
-  account: string,
-  employee: string,
-  bank: string,
-  branch: string,
-  accType: string,
-  accNumber: string,
-  empNumber: string,
-  lastUpdate: Date,
-  [key: string]: number | string | Date;
-}
 class ModalBody extends Component<any, any> {
   private inputAccount = createRef<HTMLInputElement>();
   private inputEmployee = createRef<HTMLInputElement>();

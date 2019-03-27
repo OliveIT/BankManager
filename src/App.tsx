@@ -4,18 +4,7 @@ import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import logo from './logo.svg';
 import './App.css';
 import ModalBody from './components/ModalBody';
-
-interface BankItem {
-  id: number,
-  account: string,
-  employee: string,
-  bank: string,
-  branch: string,
-  accType: string,
-  accNumber: string,
-  empNumber: string,
-  lastUpdate: Date,
-}
+import {BankItem} from './interfaces/BankItem';
 
 class App extends Component<any, any> {
   constructor(props: any) {
