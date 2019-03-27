@@ -80,14 +80,14 @@ class ModalBody extends Component<any, any> {
           
           {this.props.saveStep == 3 ?
           <div className="col-md-12">
-            {/*Object.keys(fields).map((key, index) => 
+            {Object.keys(fields).map((key, index) => 
               <div className="form-group row" key={index}>
                 <label htmlFor="staticEmail" className="col-sm-4 col-form-label font-weight-bold">{key}</label>
                 <div className="col-sm-8">
                   <label className="form-control-plaintext">{(key == "lastUpdate") ? fields[key].toString() : fields[key]}</label>
                 </div>
               </div>
-            )*/}
+            )}
           </div> : null}
         </div>
       </div>);
