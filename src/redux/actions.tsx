@@ -7,7 +7,8 @@ import axios from 'axios';
 import { BankItem } from '../interfaces/BankItem';
 import { QUERY_GETALL, QUERY_INSERT, QUERY_UPDATE, QUERY_DELETE } from '../graphql/queries';
 
-const url = "http://localhost:4000/";
+//const url = "http://localhost:4000/";
+const url = "http://209.97.147.104:4000/"
 
 export const fetchData = () => {
   return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {

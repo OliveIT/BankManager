@@ -1,8 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Employee bank account list management.
+
+Implement Create, Search, Edit, Delete operations for a list.
+
+## Frontend
+
+Used ReactJS and TypeScript.
+This project uses Bootstrap 4 and Fontawesome 5.
+
+### View Model
+
+Bank model for bank account list items, here is an example:
+
+- Account Holder's name ("Gregory House", "Elliot Alderson")
+- Employee name ("Dr. Gregory House", "Mr. Robot")
+- Bank name ("Citibank", "JP Morgan Chase")
+- Branch name ("LA Central", "Branch 42")
+- Account type ("Savings", "Checking")
+- Account number ("0000042", a number up to 7 digits, zero-left-padded)
+- Employee number ("012345678901234", a number up to 15 digits, zero-left-padded)
+- Last update ("2019-Mar-19 18:14", a datetime)
+
+### Create/edit
+
+Create/Edit operation should be implemented as a "Wizard" - a multi-step editing using modals, or without them such as in this example: [link](https://colorlib.com/wp/wp-content/uploads/sites/2/colorlib-bootstrap-wizard-25.jpg).
+
+Implement at least two steps. For example, I followed these steps:
+
+1. Bank name and bank branch name input.
+2. Account holder's name, account type, account number input.
+3. Employee name, employee number input.
+4. Confirmation step that presents information input in previous steps to preview before saving.
+
+#### Searching
+
+On the list view, added any type of Search criteria. 
+
+#### Sorting
+
+List view should be sortable by any field displayed in the list view.
+
+#### Deleting
+
+Using a checkbox column for selecting the items, and a "Delete" button below the list. Pressing the delete button will display a delete confirmation modal showing a summary of the items to be deleted and "Cancel" and "Confirm" buttons.
+
+## Backend
+
+Uses GraphQL for server.
+
+## Tests
+
+Uses Jest for covering your ReactJS app, and a corresponding tooling for the Backend.
+
+## Delivery
+
+Please share the link to your GitHub repository for this task. The repository should contain a short README.md with a link to a deployed application and a brief summary of how much time it took to implement the task. 
+("**Frontend**: *8* hours, **Backend**: *3* hours, **Deployment**: *0.5* hours").
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Install node modules
 
 ### `npm start`
 
@@ -27,18 +87,3 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

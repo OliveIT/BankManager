@@ -1,5 +1,3 @@
-import gql from "graphql-tag";
-
 export const QUERY_GETALL = `
   query {
     bankItems {
