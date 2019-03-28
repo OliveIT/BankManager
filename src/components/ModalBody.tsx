@@ -32,7 +32,7 @@ class ModalBody extends Component<any, any> {
       empNumber = empNumber.substr(empNumber.length - 15, 15);
     }
     return {
-      id: "123123",//String((new Date()).getTime()),
+      id: String((new Date()).getTime()),
       account: this.inputAccount.current ? this.inputAccount.current.value : "",
       employee: this.inputEmployee.current ? this.inputEmployee.current.value : "",
       bank: this.inputBank.current ? this.inputBank.current.value : "",
